@@ -1,4 +1,3 @@
-
 package misc;
 
 //java code
@@ -24,5 +23,6 @@ id = [a-z_$][a-z_$0-9]
 "else" {return Parser.ELSE;}
 "while" {return Parser.WHILE;}
 "for" { return Parser.FOR; }
+"int" {return Parser.INT;}
 \'~['\n]*\' {/*string*/}
 . { return (int) yytext().charAt(0);}
