@@ -12,8 +12,7 @@ import ast.expr.ASTExpr;
  * @author juliocmalvares
  */
 public abstract class ASTAtrib extends ASTExpr{
-    
-    public ASTAtrib(ASTExpr esq, ASTExpr dir) {
+    public ASTAtrib(ASTExpr esq, ASTExpr dir, String type) {
         super(esq, dir);
     }
     
