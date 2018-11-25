@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ast.expr;
+package ast.expr.math;
+
+import ast.expr.ASTExpr;
 
 /**
  *
  * @author juliocmalvares
  */
-public class ASTMult extends ASTExpr{
-    public ASTMult(ASTExpr esq, ASTExpr dir){
+public class ASTDiv extends ASTExpr{
+    public ASTDiv(ASTExpr esq, ASTExpr dir){
         super(esq, dir);
     }
 }

@@ -19,6 +19,7 @@
 //#line 2 "parser.y"
 /*yylval é a variavel do lexema que recebe do analisador lexico*/
 package misc;
+import ast.expr.math.ASTSoma;
 import java.io.*;
 import ast.*;
 import ast.expr.*;
