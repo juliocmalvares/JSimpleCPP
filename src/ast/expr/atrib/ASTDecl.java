@@ -6,6 +6,7 @@
 package ast.expr.atrib;
 
 import ast.ASTNode;
+import ast.ASTType;
 import ast.expr.ASTExpr;
 
 /**
@@ -13,27 +14,28 @@ import ast.expr.ASTExpr;
  * @author juliocmalvares
  */
 public class ASTDecl extends ASTNode{
-    private String type;
-    private ASTExpr atrib;
+    private ASTAtrib atrib;
+    private ASTType type;
     
-    public ASTDecl(String type, ASTExpr exp){
+    public ASTDecl(){}
+    public ASTDecl(ASTAtrib at, ASTType type){
+        this.atrib = at;
         this.type = type;
-        this.atrib = exp;
-    }
-    public String getType() {
-        return type;
-    }
+    }   
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public ASTExpr getAtrib() {
+    public ASTAtrib getAtrib() {
         return atrib;
     }
 
     public void setAtrib(ASTAtrib atrib) {
         this.atrib = atrib;
     }
-    
+
+    public ASTType getType() {
+        return type;
+    }
+
+    public void setType(ASTType type) {
+        this.type = type;
+    }    
 }

@@ -19,7 +19,6 @@ public abstract class ASTExpr extends ASTNode{
         this.esq = esq;
     }
 
-    
     public ASTExpr getDir() {
         return dir;
     }

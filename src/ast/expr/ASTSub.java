@@ -3,19 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ast.expr.atrib;
-
-import ast.ASTType;
-import ast.expr.ASTExpr;
+package ast.expr;
 
 /**
  *
  * @author juliocmalvares
  */
-public abstract class ASTAtrib extends ASTExpr{
-    public ASTAtrib(ASTExpr esq, ASTExpr dir, String type){
-        super(esq,dir);
-
+public class ASTSub extends ASTExpr{
+    public ASTSub(ASTExpr esq, ASTExpr dir){
+        super(esq, dir);
     }
-
 }
