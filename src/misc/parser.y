@@ -7,6 +7,10 @@ import ast.expr.*;
 import symbtab.SymbolTab;
 import ast.expr.math.*;
 import ast.expr.atrib.*;
+import ast.expr.math.types.*;
+import ast.expr.conditional.*;
+import ast.expr.loop.*;
+import ast.expr.math.logical.*;
 
 
 
@@ -26,7 +30,7 @@ lst_comandos:
 comando:
     PRINT '<<' expr                                                     { /*Implementar print*/ } 
 
-|   INT ID ATRIB expr                                                   { symtab.set((String)$2); $$ = new ASTDecl((ASTExpr)$4, new ASTType("int"), (String)$2); }
+|   INT ID ATRIB expr                                                   { symtab.set((String)$2); $$ = new ASTDecl((ASTInteger)$4, (String)$2); }
 |   DOUBLE ID ATRIB expr                                                { /*double*/}
 |   BOOL ID ATRIB expr                                                  { /*boolean*/}
 |   CHAR ID ATRIB expr                                                  { /*character*/}
@@ -42,9 +46,10 @@ expr:
     expr '+' expr                                                       { $$ = new ASTSoma( (ASTExpr)$1, (ASTExpr)$3 ); }
 |   expr '-' expr                                                       { $$ = new ASTSub( (ASTExpr)$1, (ASTExpr)$3); }
 |   '(' expr ')'                                                        { $$ = $2; }
-|   expr '>' expr
-|   expr '<' expr   
-|   NUM                                                                 { $$ = new ASTNum((Integer)$1); }
+|   expr '>' expr                                                       { $$ = new ASTBigger((ASTExpr)$1, (ASTExpr)$3);}
+|   expr '<' expr                                                       { $$ = new ASTLess((ASTExpr)$1, (ASTExpr)$3);}
+|   NUM                                                                 {  if($1 instanceof Integer){ $$ = new ASTInteger((Integer)$1); System.out.println("Integer");}
+                                                                           if($1 instanceof Double) $$ = new ASTDouble((Double)$1); }
 ;
 
 %%
