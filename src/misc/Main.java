@@ -19,8 +19,6 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
         Parser p = new Parser("src/test/teste.txt");       
-        
-        
         p.yyparse();
         
     }

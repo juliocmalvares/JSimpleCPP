@@ -1,4 +1,4 @@
-package ast.expr.math.numerical;
+package ast.expr.math.types;
 
 import ast.expr.ASTExpr;
 
