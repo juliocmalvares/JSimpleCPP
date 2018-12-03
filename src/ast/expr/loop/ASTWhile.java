@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ast;
-
+package ast.expr.loop;
+import ast.ASTCommand;
 import ast.expr.ASTExpr;
 import java.io.PrintWriter;
 import symbtab.SymbolTab;
@@ -13,16 +8,32 @@ import symbtab.SymbolTab;
  *
  * @author juliocmalvares
  */
-public class ASTPrint extends ASTCommand{
-    private ASTExpr expr;
 
-    public ASTExpr getExpr() {
-        return expr;
+public class ASTWhile extends ASTCommand {
+    private ASTExpr condition;
+    private ASTCommand commands;
+
+    public ASTWhile(ASTExpr condition, ASTCommand commands) {
+        this.condition = condition;
+        this.commands = commands;
     }
 
-    public void setExpr(ASTExpr expr) {
-        this.expr = expr;
+    public ASTExpr getCondition() {
+        return condition;
     }
+
+    public void setCondition(ASTExpr condition) {
+        this.condition = condition;
+    }
+
+    public ASTCommand getCommands() {
+        return commands;
+    }
+
+    public void setCommands(ASTCommand commands) {
+        this.commands = commands;
+    }
+    
 
     @Override
     public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
@@ -33,6 +44,5 @@ public class ASTPrint extends ASTCommand{
     public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
+    
 }

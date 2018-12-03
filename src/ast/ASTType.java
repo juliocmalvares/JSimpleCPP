@@ -12,6 +12,9 @@ package ast;
 public class ASTType extends ASTNode {
     private String type;
     
+    public ASTType(String type){
+        this.type = type;
+    }
     public ASTType(){
         this.type = "";
     }

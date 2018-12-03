@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ast.expr;
+package ast.expr.math.numerical;
+
+import ast.expr.ASTExpr;
 
 /**
  *
  * @author juliocmalvares
  */
-public class ASTNum extends ASTExpr{
+public class ASTInteger extends ASTExpr{
     private Integer lexeme;
 
-    public ASTNum(Integer num) {
+    public ASTInteger(Integer num) {
         super(null, null);
         this.lexeme = num;
     }

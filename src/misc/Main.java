@@ -5,6 +5,9 @@
  */
 package misc;
 
+import java.io.File;
+import java.io.PrintWriter;
+
 /**
  *
  * @author juliocmalvares
@@ -15,9 +18,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        Parser p = new Parser("src/test/teste.txt");
+        Parser p = new Parser("src/test/teste.txt");       
+        
+        
         p.yyparse();
-
+        
     }
     
 }

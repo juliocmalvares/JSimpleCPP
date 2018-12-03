@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ast;
+package ast.expr.conditional;
 
+import ast.ASTCommand;
 import ast.expr.ASTExpr;
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
 
 /**
  *
@@ -50,6 +53,16 @@ public class ASTIf extends ASTCommand{
     public void setCommandselse(ASTCommand commandselse) {
         this.commandselse = commandselse;
     }
-    
+
+    @Override
+    public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

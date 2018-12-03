@@ -5,6 +5,9 @@
  */
 package ast;
 
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
+
 /**
  *
  * @author juliocmalvares
@@ -19,5 +22,12 @@ public abstract class ASTCommand extends ASTNode{
     public void setProx(ASTCommand prox) throws Exception{
         this.prox = prox;
     }
-  
+    
+    /**
+     *
+     * @param out
+     * @param symbolTab
+     */
+    public abstract void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception;
+    public abstract void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception;
 }
