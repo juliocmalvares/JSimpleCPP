@@ -7,7 +7,6 @@ package ast.expr.atrib;
 
 import ast.ASTCommand;
 import ast.ASTNode;
-import ast.ASTType;
 import ast.expr.ASTExpr;
 import java.io.PrintWriter;
 import symbtab.SymbolTab;
@@ -17,16 +16,22 @@ import symbtab.SymbolTab;
  * @author juliocmalvares
  */
 public class ASTDecl extends ASTCommand{
-    private ASTExpr atrib;
-    private ASTType type;
-    String id;
-    
-    public ASTDecl(){}
-    public ASTDecl(ASTExpr at, ASTType type, String id){
-        this.atrib = at;
-        this.type = type;
+    private ASTExpr expr;
+    private String id;
+ 
+    public ASTDecl(ASTExpr expr, String id){
+        this.expr = expr;
         this.id = id;
-    }   
+    }
+
+    public ASTExpr getExpr() {
+        return expr;
+    }
+
+    public void setExpr(ASTExpr expr) {
+        this.expr = expr;
+    }
+    
 
     public String getId() {
         return id;
@@ -35,23 +40,8 @@ public class ASTDecl extends ASTCommand{
     public void setId(String id) {
         this.id = id;
     }
-
-    public ASTExpr getAtrib() {
-        return atrib;
-    }
-
-    public void setAtrib(ASTExpr atrib) {
-        this.atrib = atrib;
-    }
-
-    public ASTType getType() {
-        return type;
-    }
-
-    public void setType(ASTType type) {
-        this.type = type;
-    }    
-
+    
+    
     @Override
     public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -61,4 +51,5 @@ public class ASTDecl extends ASTCommand{
     public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

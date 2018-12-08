@@ -13,6 +13,16 @@ import ast.*;
  */
 public abstract class ASTExpr extends ASTNode{
     private ASTExpr dir, esq;
+    private int line;
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line = line;
+    }
+    
 
     public ASTExpr(ASTExpr esq, ASTExpr dir) {
         this.dir = dir;

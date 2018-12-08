@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ast.expr.math.types;
+package ast;
 
 import ast.expr.ASTExpr;
 
@@ -11,21 +11,12 @@ import ast.expr.ASTExpr;
  *
  * @author juliocmalvares
  */
-public class ASTChar extends ASTExpr{
-    private Character lexeme;
-
-    public Character getLexeme() {
-        return lexeme;
-    }
-
-    public void setLexeme(Character lexeme) {
-        this.lexeme = lexeme;
-    }
+public class ASTId extends ASTExpr{
+    private String lexeme;
     
-    
-    public ASTChar(Character lexeme){
+    public ASTId(String lexeme) {
         super(null, null);
         this.lexeme = lexeme;
     }
-
+    
 }

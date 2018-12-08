@@ -1,0 +1,28 @@
+/* PROBLEMA DO TROCO */
+
+float troco;
+int c[6], v[6], i;
+
+/* VALORES */
+v[0] = 1;
+v[1] = .5;
+v[2] = .25;
+v[3] = .1;
+v[4] = .5;
+v[5] = .01;
+
+cout << "Informe o valor: ";
+cin >> troco;
+
+for(i=0;i < n;i++) {
+	while(troco > v[i]) {
+		c[i]++;
+		troco = troco - v[i];
+	}
+}
+
+cout << "O total de moedas usado foi " << endl;
+
+for(i=0;i<n;i++) {
+	cout << v[i] << " = " << c[i] << endl;
+}

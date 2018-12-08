@@ -14,6 +14,15 @@ import symbtab.SymbolTab;
  */
 public abstract class ASTCommand extends ASTNode{
     private ASTCommand prox;
+    private int line;
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line = line;
+    }
 
     public ASTCommand getProx() {
         return prox;

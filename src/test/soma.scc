@@ -1,0 +1,11 @@
+/* SOMA DE 2 NÚMEROS */
+
+int a, b;
+
+cout << "Informe um número: ";
+cin >> a;
+
+cout << "Informe outro número: ";
+cin >> b;
+
+cout << "A soma é " << a+b;

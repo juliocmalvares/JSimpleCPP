@@ -10,21 +10,21 @@ import symbtab.SymbolTab;
  * @author juliocmalvares
  */
 public class ASTFor extends ASTCommand {
-    private ASTExpr init, condition, iteration;
-    private ASTCommand commands;
+    private ASTExpr condition, iteration;
+    private ASTCommand init, commands;
 
-    public ASTFor(ASTExpr init, ASTExpr condition, ASTExpr iteration, ASTCommand commands) {
+    public ASTFor(ASTCommand init, ASTExpr condition, ASTExpr iteration, ASTCommand commands) {
         this.init = init;
         this.condition = condition;
         this.iteration = iteration;
         this.commands = commands;
     }
     
-    public ASTExpr getInit() {
+    public ASTCommand getInit() {
         return init;
     }
 
-    public void setInit(ASTExpr init) {
+    public void setInit(ASTCommand init) {
         this.init = init;
     }
 

@@ -4,11 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/misc/Parser.java</file>
-            <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/symbtab/SymbolTab.java</file>
-            <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/misc/scanner.flex</file>
+            <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/ast/expr/atrib/ASTListVariables.java</file>
             <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/misc/parser.y</file>
             <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/test/teste.txt</file>
             <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/misc/Main.java</file>
+            <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/ast/expr/atrib/ASTDecl.java</file>
+            <file>file:/home/juliocmalvares/Documentos/8%20Periodo/JSimpleCPP/src/ast/expr/math/types/ASTChar.java</file>
         </group>
     </open-files>
 </project-private>

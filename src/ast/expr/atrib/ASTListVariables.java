@@ -3,30 +3,36 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ast;
+package ast.expr.atrib;
 
-import ast.expr.ASTExpr;
+import ast.ASTCommand;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import symbtab.SymbolTab;
 
 /**
  *
  * @author juliocmalvares
  */
-public class ASTPrint extends ASTCommand{
-    private ASTExpr expr;
+public class ASTListVariables extends ASTCommand{
+    private List<ASTDecl> list;
 
-    public ASTPrint(ASTExpr expr) {
-        this.expr = expr;
+    public ASTListVariables() {
+        this.list = new ArrayList<>();
     }
     
-    public ASTExpr getExpr() {
-        return expr;
+    public void setProx(ASTDecl decl){
+        this.list.add(decl);
     }
 
-    public void setExpr(ASTExpr expr) {
-        this.expr = expr;
+    public List<ASTDecl> getList() {
+        return list;
     }
+
+    public void setList(List<ASTDecl> list) {
+        this.list = list;
+    }   
 
     @Override
     public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
@@ -37,6 +43,5 @@ public class ASTPrint extends ASTCommand{
     public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
+    
 }

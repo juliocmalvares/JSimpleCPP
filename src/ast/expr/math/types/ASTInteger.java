@@ -8,10 +8,32 @@ import ast.expr.ASTExpr;
  */
 public class ASTInteger extends ASTExpr{
     private Integer lexeme;
-
+    private String operator;
+    
     public ASTInteger(Integer num) {
         super(null, null);
         this.lexeme = num;
+        this.operator = "";
+        this.trateOperator();
+    }
+    
+    public ASTInteger(Integer num, String operator){
+        super(null, null);
+        this.lexeme = num;
+        this.operator = operator;
+        this.trateOperator();
+    }
+    
+    private void trateOperator(){
+        this.lexeme = lexeme*-1;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
     public Integer getLexeme() {
