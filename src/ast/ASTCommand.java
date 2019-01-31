@@ -13,7 +13,7 @@ import symbtab.SymbolTab;
  * @author juliocmalvares
  */
 public abstract class ASTCommand extends ASTNode{
-    private ASTCommand prox;
+    private ASTCommand prox, ant;
     private int line;
 
     public int getLine() {
@@ -28,15 +28,31 @@ public abstract class ASTCommand extends ASTNode{
         return prox;
     }
 
+    public ASTCommand getAnt() {
+        return ant;
+    }
+
+    public void setAnt(ASTCommand ant) {
+        this.ant = ant;
+    }
+    
     public void setProx(ASTCommand prox) throws Exception{
         this.prox = prox;
     }
     
     /**
      *
+     * @param tab
      * @param out
      * @param symbolTab
+     * @return 
+     * @throws java.lang.Exception
      */
+    
+    @Override
+    public abstract void semanticAnalysis(SymbolTab tab) throws Exception;
+    @Override
     public abstract void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception;
+    @Override
     public abstract void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception;
 }

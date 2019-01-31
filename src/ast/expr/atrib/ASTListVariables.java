@@ -16,23 +16,24 @@ import symbtab.SymbolTab;
  * @author juliocmalvares
  */
 public class ASTListVariables extends ASTCommand{
-    private List<ASTDecl> list;
+    private ASTListVariables prox, ant;
 
-    public ASTListVariables() {
-        this.list = new ArrayList<>();
-    }
-    
-    public void setProx(ASTDecl decl){
-        this.list.add(decl);
+    public ASTListVariables getProx() {
+        return prox;
     }
 
-    public List<ASTDecl> getList() {
-        return list;
+    public void setProx(ASTListVariables prox) {
+        this.prox = prox;
     }
 
-    public void setList(List<ASTDecl> list) {
-        this.list = list;
-    }   
+    public ASTListVariables getAnt() {
+        return ant;
+    }
+
+    public void setAnt(ASTListVariables ant) {
+        this.ant = ant;
+    }
+
 
     @Override
     public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
@@ -43,5 +44,11 @@ public class ASTListVariables extends ASTCommand{
     public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void semanticAnalysis(SymbolTab tab) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

@@ -6,6 +6,8 @@
 package ast.expr;
 
 import ast.*;
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
 
 /**
  *
@@ -44,5 +46,12 @@ public abstract class ASTExpr extends ASTNode{
     public void setEsq(ASTExpr esq) {
         this.esq = esq;
     }
+    
+    @Override
+    public abstract void semanticAnalysis(SymbolTab tab) throws Exception;
+    @Override
+    public abstract void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception;
+    @Override
+    public abstract void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception;
     
 }

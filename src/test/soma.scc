@@ -1,6 +1,7 @@
 /* SOMA DE 2 NÚMEROS */
 
-int a, b;
+int a;
+int b;
 
 cout << "Informe um número: ";
 cin >> a;

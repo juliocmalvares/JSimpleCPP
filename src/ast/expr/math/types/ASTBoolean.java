@@ -6,6 +6,8 @@
 package ast.expr.math.types;
 
 import ast.expr.ASTExpr;
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
 
 /**
  *
@@ -28,4 +30,25 @@ public class ASTBoolean extends ASTExpr{
         super(null, null);
         this.lexeme = lexeme;
     }
+
+    @Override
+    public void semanticAnalysis(SymbolTab tab) throws Exception {
+
+    }
+
+    @Override
+    public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        if(this.lexeme == false){
+            out.print("False");
+        }else{
+            out.print("True");
+        }
+    }
+
+
 }

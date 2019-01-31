@@ -35,7 +35,16 @@ public class ASTPrint extends ASTCommand{
 
     @Override
     public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for(int i = 0; i < symbolTab.getPadding(); i++) out.print('\t');
+        out.print("print(");
+        this.getExpr().generatePython(out, symbolTab);
+        out.print(")\n");
+        if(this.getProx() != null) this.getProx().generatePython(out, symbolTab);
+    }
+
+    @Override
+    public void semanticAnalysis(SymbolTab tab) throws Exception {
+        this.getExpr().semanticAnalysis(tab);
     }
 
 

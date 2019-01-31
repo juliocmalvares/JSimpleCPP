@@ -7,7 +7,6 @@ package misc;
 %byaccj
 %class Scanner
 %public
-%debug
 
 %{
     public int getYYline(){
@@ -31,25 +30,38 @@ endlComment     = "//" {InputCharacter}* {LineTerminator}?
 DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent       = ( [^*] | \*+ [^/*] )*
 
+str =   \"~[\"\n]*\"
+
 %%
 {comments}                                      { }
 {white}+                                        { }
-{digit}+                                        { ((Parser)this).yylval = new Integer((String)yytext()); return Parser.INT;          }
-{digit}+\.{digit}+(e[+-]?{digit}+)?             { ((Parser)this).yylval = new Double((String)yytext()); return Parser.DOUBLE;       }
-"="                                             { return Parser.ATRIB;                                                      }
-"cout"                                          { return Parser.PRINT;                                                      }
-"cin"                                           { return Parser.CIN;                                                        }
-"if"                                            { return Parser.IF;                                                         }
-"else"                                          { return Parser.ELSE;                                                       }
-"while"                                         { return Parser.WHILE;                                                      }
-"for"                                           { return Parser.FOR;                                                        }
-"int"                                           { return Parser.INT;                                                        }
-"double"                                        { return Parser.DOUBLE;                                                     }
-"string"                                        { return Parser.STRING;                                                     }
-"char"                                          { return Parser.CHAR;                                                       }
-"bool"                                          { return Parser.BOOL;                                                       }
-"false"                                         { return Parser.BOOLEAN;                                                    }
-"true"                                          { return Parser.BOOLEAN;                                                    }
-{id}                                            { ((Parser)this).yylval = yytext(); return Parser.ID;                       }
-\"~[\"\n]*\"                                    { /* string */                                                              }
-.                                               { return (int) yytext().charAt(0);                                          }
+{digit}+                                        { ((Parser)this).yylval = new Integer((String)yytext()); return Parser.INT;             }
+{digit}+\.{digit}+(e[+-]?{digit}+)?             { ((Parser)this).yylval = new Double((String)yytext()); return Parser.DOUBLE;           }
+"="                                             { return Parser.ATRIB;                                                                  }
+"cout"                                          { return Parser.PRINT;                                                                  }
+"cin"                                           { return Parser.CIN;                                                                    }
+"if"                                            { return Parser.IF;                                                                     }
+"else"                                          { return Parser.ELSE;                                                                   }
+"while"                                         { return Parser.WHILE;                                                                  }
+"for"                                           { return Parser.FOR;                                                                    }
+"int"                                           { return Parser.INT;                                                                    }
+"double"                                        { return Parser.DOUBLE;                                                                 }
+"string"                                        { return Parser.STRING;                                                                 }
+"char"                                          { return Parser.CHAR;                                                                   }
+"bool"                                          { return Parser.BOOL;                                                                   }
+"false"                                         { ((Parser)this).yylval = Boolean.valueOf("false"); return Parser.BOOLEAN;              }
+"true"                                          { ((Parser)this).yylval = Boolean.valueOf("true"); return Parser.BOOLEAN;               }
+"<<"                                            { return Parser.OUT;                                                                    }
+">>"                                            { return Parser.IN;                                                                     }
+"++"                                            { return Parser.INCR;                                                                   }
+"--"                                            { return Parser.DECR;                                                                   }
+"=="                                            { return Parser.EQUAL;                                                                  }
+"!="                                            { return Parser.NOTEQUAL;                                                               }
+"&&"                                            { return Parser.AND;                                                                    }
+"||"                                            { return Parser.OR;                                                                     }
+">="                                            { return Parser.BIGGEREQUAL;                                                            }
+"<="                                            { return Parser.LESSEQUAL;                                                              }
+{id}                                            { ((Parser)this).yylval = yytext(); return Parser.ID;                                   }
+{str}                                           { ((Parser)this).yylval = yytext(); return Parser.STRING;                               }
+","                                             {return Parser.VRG; }
+.                                               { return (int) yytext().charAt(0);                                                      }

@@ -13,26 +13,16 @@ import symbtab.SymbolTab;
  *
  * @author juliocmalvares
  */
-public class ASTChar extends ASTExpr{
-    private Character lexeme;
-
-    public Character getLexeme() {
-        return lexeme;
-    }
-
-    public void setLexeme(Character lexeme) {
-        this.lexeme = lexeme;
-    }
+public class ASTString extends ASTExpr{
+    private String lexeme;
     
-    
-    public ASTChar(Character lexeme){
+    public ASTString(String lex) {
         super(null, null);
-        this.lexeme = lexeme;
+        this.lexeme = lex;
     }
 
     @Override
     public void semanticAnalysis(SymbolTab tab) throws Exception {
-
     }
 
     @Override
@@ -45,6 +35,5 @@ public class ASTChar extends ASTExpr{
         out.print(this.lexeme);
     }
 
-
-
+    
 }

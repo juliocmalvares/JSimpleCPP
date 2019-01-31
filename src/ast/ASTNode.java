@@ -5,10 +5,17 @@
  */
 package ast;
 
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
+
 /**
  *
  * @author juliocmalvares
  */
 public abstract class ASTNode {
     
+    
+    public abstract void semanticAnalysis(SymbolTab tab) throws Exception;
+    public abstract void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception;
+    public abstract void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception;
 }

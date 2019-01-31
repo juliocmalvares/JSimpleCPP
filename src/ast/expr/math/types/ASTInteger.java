@@ -1,6 +1,8 @@
 package ast.expr.math.types;
 
 import ast.expr.ASTExpr;
+import java.io.PrintWriter;
+import symbtab.SymbolTab;
 
 /**
  *
@@ -14,18 +16,12 @@ public class ASTInteger extends ASTExpr{
         super(null, null);
         this.lexeme = num;
         this.operator = "";
-        this.trateOperator();
     }
     
     public ASTInteger(Integer num, String operator){
         super(null, null);
         this.lexeme = num;
         this.operator = operator;
-        this.trateOperator();
-    }
-    
-    private void trateOperator(){
-        this.lexeme = lexeme*-1;
     }
 
     public String getOperator() {
@@ -43,5 +39,20 @@ public class ASTInteger extends ASTExpr{
     public void setLexeme(Integer lexema) {
         this.lexeme = lexema;
     }
+
+    @Override
+    public void semanticAnalysis(SymbolTab tab) throws Exception {
+    }
+
+    @Override
+    public void generateJasmin(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void generatePython(PrintWriter out, SymbolTab symbolTab) throws Exception {
+        out.print(this.lexeme);
+    }
+
     
 }

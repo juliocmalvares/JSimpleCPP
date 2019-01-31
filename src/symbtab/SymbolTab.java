@@ -4,9 +4,25 @@ import java.util.HashMap;
 public class SymbolTab {
     private HashMap<String, Integer> map; //string nome da variavel e object posição de memoria de offset
     private int stack;
+    private int padding;
+
+
+    public int getPadding() {
+        return padding;
+    }
+
+    public void pushPadding() {
+        this.padding++;
+    }
+    
+    public void popPadding(){
+        if(this.padding -1 >= 0) this.padding--;
+    }
+    
     
     public SymbolTab() {
         this.map = new HashMap<>();
+        this.padding = 0;
     }
     
     public void set(String id){
@@ -17,7 +33,8 @@ public class SymbolTab {
     
     public Integer get(String nome) throws Exception{
         if(!this.map.containsKey(nome)){
-            throw new Exception("Variável " + nome + "não foi declarada! ");
+            return -1;
+            //throw new Exception("Variável " + nome + "não foi declarada! ");
         }
         return this.map.get(nome);
     }
